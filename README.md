@@ -4,7 +4,13 @@
 This project aims to understand what macro-level factors may affect or be associated with cereal yields. These yields specifically refer to the kg of production per hectare and as such reflect to what extent a country is able to extract the highest amount of cereal from a given area. This is an important issue given that we are already exploiting the large majority of the global arable land with major expansions still possible in highly sensitive areas such as the amazon and other rainforests and biodiversity hotspots. By understanding and modelling the yield we might be able to understand what factors could be drivers of improved yields and better predict the response in yield to certain macro level changes such as temperature change, economic development and areas of investment. 
 
 ## Summary of Project
-This project used a number of economic and geographic variables to try model cereal yields. What was found in the models is that to get accurate predictions a high degree of complexity was needed in the model meaning that interpretibility, while largely preserved by the choice of models, became difficult. Fertilizer input proved to be the best single variable but many polynomic and interaction terms proved very useful to the models predictive power. Some of the best polynomic and interaction features included:
+This project used a typical time series model with a 5 year horizon but with a number of economic and geographic variables included alongisde the lag of the yield to try improve the model and capture which variables might have important effects on the global changes in yield. Lags were created for each country but the model trained on all countries to try learn patterns at a global level. The model used was a RandomForestRegressor as part of a sklearn pipeline. The most important variable by some distance was found to be the 5 year lag of the yield but model performance on test data was found to improve with the inclusion of the other variables. Given the short nature of this project, there are a number of routes for improvement such as:
+
+- trying ARIMA and ARIMAX models
+- finding other potentially important variables.
+- carrying out more feature engineering
+- analysing countries separately or in groups based on similar economic status or climate.
+- 
 
 ## Data Overviews
 
@@ -30,8 +36,3 @@ This project used a number of economic and geographic variables to try model cer
     - Country latitude and logitude
     - HistoricalGDP per capita [https://ourworldindata.org/grapher/world-gdp-over-the-last-two-millennia]
     - Historical anual average temperature
-
-## Models Used
-- Linear Regression exploring effect of selecting the k best (SelelctKBest) features before creating varying numbers of polynomial features.
-- Linear Regression exploring effect of selecting the k best (SelelctKBest) features after creating varying numbers of polynomial features.
-- Random Forest Regression was used with a grid search for hyperparamter tuning to find the best model that would still retain some degree of interpretability.
