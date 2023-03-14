@@ -10,7 +10,6 @@ This project used a typical time series model with a 5 year horizon but with a n
 - finding other potentially important variables.
 - carrying out more feature engineering
 - analysing countries separately or in groups based on similar economic status or climate.
-- 
 
 ## Data Overviews
 
